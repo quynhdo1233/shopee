@@ -1,0 +1,213 @@
+:root{
+    --private-color:rgb(238, 77, 45);
+    --while-color:#fff;
+    --back-color:#000;
+    --text-color:#333;
+    --boder-color:#dbdbdb;
+    --star-gold:#FFCE3E;
+    --heigth-header:120px;
+    --heigth-nav:44px;
+    --heigth-search:calc(var(--heigth-header) - var(--heigth-nav));
+}
+*{
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    /* 1rem=10px của 62.5%--hack*/
+    line-height:1.6rem;
+    font-family: 'Roboto',sans-serif;
+    box-sizing: border-box;
+}
+/* responsive */
+.grid{
+  width: 1200px;
+  max-width: 100%;
+  margin: 0px auto;
+}
+.grid__full-with{
+ width: 100%;
+}
+.grid__row{
+    display: flex;
+    flex-wrap:wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+    justify-content: center;
+}
+/* test */
+.grid__colum-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.667%;
+}
+.grid__colum-2-5{
+    padding-left: 5px;
+    padding-right: 5px;
+    width:20%;
+}
+.grid__colum-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width:83.333%;
+}
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes growth{
+    from{
+        transform: scale(var(--growfrom));
+    }
+    to{
+        transform: scale(var(--growto));
+    }
+}
+.modal {
+    position:fixed;
+    display: flex;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    animation: fadein ease-in 0.1s;
+}
+.modal__overlay{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+}
+.modal__body{
+    --growfrom:0.5;
+    --growto:1;
+    width: 500px;
+    /* height: 300px; */
+    margin: auto;
+    background-color:var(--while-color);
+    z-index: 2;
+    border-radius: 5px;
+    overflow: hidden;
+    animation: growth linear 0.2s;
+}
+/* button style */
+.btn{
+    height: 36px;
+    min-width: 142px;
+    text-decoration: none;
+    border:none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0px;
+    /* margin-left: 15px; */
+    margin-bottom: 0px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+.btn-nomarl:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.btn.btn--primary{
+    color: var(--while-color);
+    background-color: var(--private-color);
+}
+.btn.btn--size-s{
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 30px;
+    margin-bottom: 6px;
+
+}
+.auth-form__socials{
+    background-color: #f5f5f5;
+    padding: 5px 36px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+.auth-form__socials-icon{
+    font-size:1.6rem;
+}
+/* selection */
+.select-input{
+    position: relative;
+    min-width: 200px;
+    height: 34px;
+    padding: 0 5px;
+    border-radius: 2px;
+    background-color: var(--while-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.select-input:hover .select-input__list{
+    display: block;
+}
+.select-input__label{
+    font-size: 1.2rem;
+}
+.select-input__list{
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    list-style: none;
+    top:26px;
+    border-radius: 2px;
+    background-color: var(--while-color);
+    display: none;
+    z-index: 1;
+}
+.select-input__list::after{
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    top: -15px;
+    right: 0px;
+    display: block;
+}
+.select-input__item-link{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 4px 0px;
+}
+.select-input__item-link:hover{
+    color: var(--private-color);
+}
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.pagination-item{
+    margin: 0 12px;
+}
+
+.pagination-item__link{
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+}
+.pagination-item--active .pagination-item__link{
+    background-color: var(--private-color);
+    color: var(--while-color);
+}
+.pagination-item--active .pagination-item__link:hover{
+    background-color: #ed5c3f;
+}
